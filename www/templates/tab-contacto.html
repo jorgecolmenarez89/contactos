@@ -1,0 +1,60 @@
+<ion-view view-title="Listado de Contactos">
+
+  <ion-nav-buttons side="primary">
+    <button class="button button-icon ion-minus-circled"
+      ng-click="data.shouldShowDelete = !data.shouldShowDelete;" >
+    </button>
+  </ion-nav-buttons>
+
+  <div class="bar bar-subheader item-input-inset bar-light">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="Buscar" ng-model="busqueda">
+    </label>
+  </div>
+
+  <ion-content class="has-subheader">
+    <ion-refresher 
+      pulling-text="Deslice para refrescar..."
+      on-refresh="doRefresh()" >
+    </ion-refresher>
+    <ion-list
+        show-delete="data.shouldShowDelete"
+        show-reorder="data.shouldShowReorder"
+        can-swipe="data.listCanSwipe">
+      <ion-item ng-repeat="item in contactos | filter: busqueda"
+          class="item-icon-left" href="#/tab/contacto/{{item.id}}" >
+
+        <i class="icon ion-person-stalker"></i>
+        <h2>{{item.name}}</h2>
+        <p>{{item.email}}</p>
+        <p>phone: {{item.phonePrimary}}</p>
+        <ion-option-button class="button-positive"
+                      ng-click="share(item)">
+        Share
+        </ion-option-button>
+        <ion-option-button class="button-info"
+                      ng-click="edit(item)">
+        Edit
+        </ion-option-button>
+        <ion-delete-button class="ion-minus-circled"
+                      ng-click="remove(item)">
+        </ion-delete-button>
+        <ion-reorder-button class="ion-navicon"
+                        on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+        </ion-reorder-button>
+
+      </ion-item>
+
+      <ion-infinite-scroll
+        on-infinite="loadMore()"
+        distance="1%"
+      >
+      </ion-infinite-scroll>
+
+    </ion-list>
+  </ion-content>
+
+</ion-view>
+
+  

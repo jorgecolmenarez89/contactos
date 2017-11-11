@@ -1,0 +1,11 @@
+/* Empty. Add your own CSS if you like */
+
+
+.bar-positive, .tabs-positive>.tabs {
+    background-color: #512DA8 !important;
+    border-color: white;
+}
+
+.button-positive{
+    background-color: #512DA8 !important;
+}

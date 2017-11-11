@@ -1,0 +1,71 @@
+<ion-view view-title="Agregar contacto">
+  <div class="bar bar-subheader">
+    <h2 class="title">Datos del contacto</h2>
+  </div>
+
+  <ion-content class="has-subheader padding">
+
+  <form name="exampleForm">
+  <div class="list">
+    <label class="item item-input">
+      <input type="text" placeholder="name" ng-model="contacto.name" name="name" required>
+      <!--span ng-show="exampleForm.name.$error.required">Name is required.</span-->
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="identification" ng-model="contacto.identification" name="identification" required>
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="phonePrimary" ng-model="contacto.phonePrimary" name="phonePrimary" required>
+    </label>
+
+    <label class="item item-input">
+        <input type="text" placeholder="phoneSecondary" ng-model="contacto.phoneSecondary" name="phoneSecondary" required>
+    </label>
+    <label class="item item-input">
+        <input type="text" placeholder="fax" ng-model="contacto.fax" name="fax" required>
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="mobile" ng-model="contacto.mobile" name="mobile" required>
+    </label>
+
+    <label class="item item-input">
+      <textarea placeholder="observations" ng-model="contacto.observations" name="observations" required>
+      </textarea>
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="email" ng-model="contacto.email" name="email" required>
+    </label>
+    <label class="item item-input item-select">
+      <div class="input-label">
+          ignoreRepeated
+      </div>
+      <select ng-model="contacto.ignoreRepeated" name="ignoreRepeated">
+        <option value="true" >True</option>
+        <option value="false">False</option>
+      </select>
+    </label>
+    <label class="item item-input">
+      <textarea placeholder="address" ng-model="contacto.address.address" name="address" required>       
+      </textarea>
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="city" ng-model="contacto.address.city" name="city" required>
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="cfdiUse" ng-model="contacto.cfdiUse" name="cfdiUse" required>
+    </label>
+  </div>
+
+  <button  type="submit" class="button button-block button-positive btn-guardar" 
+    ng-click="guardarContacto()" ng-disabled="!exampleForm.$valid" >
+      Guardar Contacto
+  </button>
+
+</form>
+
+  
+
+  </ion-content>
+</ion-view>
+
+
